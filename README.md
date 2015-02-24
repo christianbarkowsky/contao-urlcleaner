@@ -49,7 +49,8 @@ Aus dem letzten Beispiel oben:
 /blog/foobar ist eine Seite (Installation von folderurl vorausgesetzt)
 /blog/reader/items/foobar wäre die normale URL der Nachricht
 
-Beim Verlinken auf die Nachricht wird aus dem Link /blog/reader/items/foobar wie gewünscht. /blog/foobar. Beim Aufruf von dieser URL wird jedoch die Seite und nicht die Nachricht angezeigt. **Es ist also darauf zu achten, dass die Aliase der Elemente nicht denen anderer (Unter)Seiten entsprechen.**
+Beim Verlinken auf die Nachricht wird aus dem Link /blog/reader/items/foobar wie gewünscht. /blog/foobar. Beim Aufruf von dieser URL wird jedoch die Seite und nicht die Nachricht angezeigt.
+**Es ist also darauf zu achten, dass die Aliase der Elemente nicht denen anderer (Unter)Seiten entsprechen.**
 
 
 ## Vermeidung von Duplicate Content
@@ -57,11 +58,13 @@ Beim Verlinken auf die Nachricht wird aus dem Link /blog/reader/items/foobar wie
 Bei der Nutzung von urlcleaner werden zwar alle Links innerhalb von Contao zwar vollständig ersetzt. Dennoch bleiben die Inhalte weiterhin unter der normalen URL abrufbar. Dies stellt sogenannten Duplicate Content, also gleiche Inhalte unter zwei verschiedenen URLs, dar und wirkt sich negativ auf das Ranking in Suchmaschinen aus.
 
 Daher empfiehlt es sich, die normalen URLs über einen Eintrag in der .htaccess jeweils auf die neue verkürzte Schreibweise weiterzuleiten. Dies geht beispielsweise mit folgenden Regeln:
-RedirectMatch 301 ^(.*)/newsreader/items/(.*) $1/newsreader/$2
-RedirectMatch 301 ^(.*)/eventreader/events/(.*) $1/eventreader/$2
+
+`RedirectMatch 301 ^(.*)/newsreader/items/(.*) $1/newsreader/$2`
+`RedirectMatch 301 ^(.*)/eventreader/events/(.*) $1/eventreader/$2`
 
 Werden alle Stellen im System, die beispielsweise "items" als Parameter verwenden, weitergeleitet, können diese auch mit einer einzigen Rewrite-Regel weitergeleitet werden:
-RedirectMatch 301 ^(.*)/items/(.*) $1/$2
+
+`RedirectMatch 301 ^(.*)/items/(.*) $1/$2`
 
 
 License: http://www.gnu.org/licenses/lgpl-3.0.html LGPL <br>
